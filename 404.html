@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      sessionStorage.redirect = location.href;
+      const basePath = '/daTerra';
+      const currentPath = window.location.pathname;
+      
+      if (currentPath.includes(basePath)) {
+        window.location.href = basePath + '/#' + currentPath.replace(basePath, '');
+      } else {
+        window.location.href = basePath + '/';
+      }
     </script>
-    <meta http-equiv="refresh" content="0;URL='/daTerra/'"></meta>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>Redirecting to application...</p>
   </body>
 </html>
